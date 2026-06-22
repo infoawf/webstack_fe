@@ -4,7 +4,7 @@ import { HomePage } from "@/components/webstack/HomePage";
 const SITE_URL = "https://webstack-growth-engine.lovable.app/";
 
 export const metadata: Metadata = {
-  title: "Professional Business Website for $500",
+  title: "Webstack | Professional Business Website for $500",
   description:
     "Get a professional business website for $500. Live in 24–72 hours with booking, payments, WhatsApp, and AI-ready structure for service businesses. Free mockup before you pay.",
   keywords: [

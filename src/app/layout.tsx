@@ -29,6 +29,11 @@ export const metadata: Metadata = {
   description:
     "WebStack builds conversion-focused websites for UK/USA solopreneurs and local businesses.",
   authors: [{ name: "Lovable" }],
+  icons: {
+    icon: "/favicon.png",
+    shortcut: "/favicon.png",
+    apple: "/favicon.png",
+  },
   openGraph: {
     title: "WebStack",
     description:
