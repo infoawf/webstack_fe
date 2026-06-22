@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { HomePage } from "@/components/webstack/HomePage";
 
-const SITE_URL = "https://webstack-growth-engine.lovable.app/";
+const SITE_URL = "https://webstack.live";
 
 export const metadata: Metadata = {
   title: "Webstack | Professional Business Website for $500",
