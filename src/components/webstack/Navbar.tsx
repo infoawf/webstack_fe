@@ -69,12 +69,12 @@ export function Navbar() {
                 Contact Us
               </Link>
               <button
-                onClick={() => setOpen((v) => !v)}
+                onClick={() => setOpen(true)}
                 className="lg:hidden inline-flex size-9 items-center justify-center rounded-full border border-ink/10 text-ink"
-                aria-label={open ? "Close menu" : "Open menu"}
+                aria-label="Open menu"
                 aria-expanded={open}
               >
-                {open ? <X className="size-4" /> : <Menu className="size-4" />}
+                <Menu className="size-4" />
               </button>
             </div>
           </div>
@@ -83,7 +83,7 @@ export function Navbar() {
 
       <div
         className={[
-          "lg:hidden fixed inset-0 z-[60] transition-opacity duration-300",
+          "lg:hidden fixed inset-0 z-[80] transition-opacity duration-300",
           open ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none",
         ].join(" ")}
         aria-hidden={!open}
@@ -97,11 +97,31 @@ export function Navbar() {
             "absolute top-0 right-0 h-full w-[85%] max-w-sm bg-surface shadow-2xl",
             "transition-transform duration-300 ease-out will-change-transform",
             open ? "translate-x-0" : "translate-x-full",
-            "flex flex-col pt-24",
+            "flex flex-col",
           ].join(" ")}
           role="dialog"
           aria-modal="true"
+          aria-label="Navigation menu"
         >
+          <div className="flex items-center justify-between gap-3 px-4 py-4 border-b border-ink/10 shrink-0">
+            <Link
+              href="/"
+              className="inline-flex items-center min-w-0"
+              onClick={() => setOpen(false)}
+            >
+              <span className="font-display font-bold text-lg tracking-tight text-ink truncate">
+                Web<span className="text-sky-accent">Stack</span>
+              </span>
+            </Link>
+            <button
+              type="button"
+              onClick={() => setOpen(false)}
+              className="inline-flex size-9 items-center justify-center rounded-full border border-ink/10 text-ink hover:bg-surface-muted transition-colors shrink-0"
+              aria-label="Close menu"
+            >
+              <X className="size-4" />
+            </button>
+          </div>
           <nav className="flex-1 overflow-y-auto px-4 py-4 flex flex-col gap-1">
             {LINKS.map((l) =>
               l.isAnchor ? (

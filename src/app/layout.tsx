@@ -15,7 +15,7 @@ const inter = Inter({
   weight: ["400", "500", "600", "700"],
 });
 
-const themeBootScript = `(function(){try{var s=localStorage.getItem('ws-theme');var d=s?s==='dark':(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches);var r=document.documentElement;if(d){r.classList.add('dark');r.style.colorScheme='dark';}else{r.style.colorScheme='light';}}catch(e){}})();`;
+const themeBootScript = `(function(){try{var s=localStorage.getItem('ws-theme');var d=s==='dark';var r=document.documentElement;if(d){r.classList.add('dark');r.style.colorScheme='dark';}else{r.style.colorScheme='light';}}catch(e){}})();`;
 
 const OG_IMAGE =
   "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/c79f9c99-38b7-4bac-b7ae-d680c6bcdc3c/id-preview-adf46fba--9a4a10c9-a557-4b38-aef0-84b17dee1691.lovable.app-1781708380629.png";
