@@ -34,7 +34,7 @@ const jsonLd = {
   mainEntity: {
     "@type": "Organization",
     name: "WebStack",
-    email: "info@awfvs.com",
+    email: "webstacklive@gmail.com",
   },
 };
 

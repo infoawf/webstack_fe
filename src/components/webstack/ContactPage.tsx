@@ -111,10 +111,10 @@ export function ContactPage() {
                         Email
                       </div>
                       <a
-                        href="mailto:info@awfvs.com"
+                        href="mailto:webstacklive@gmail.com"
                         className="text-sm font-medium hover:text-sky-accent transition-colors"
                       >
-                        info@awfvs.com
+                        webstacklive@gmail.com
                       </a>
                     </div>
                   </div>
