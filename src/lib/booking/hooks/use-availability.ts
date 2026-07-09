@@ -13,6 +13,8 @@ import {
 } from "@/lib/booking/queries/availability";
 import type { DaySlots, MonthAvailabilityMap } from "@/types/scheduling";
 
+const STALE_TIME_MS = 300_000;
+
 interface UseMonthAvailabilityOptions {
   year: number;
   month: number;
@@ -27,13 +29,16 @@ export function useMonthAvailability({
   prefetchMonth,
 }: UseMonthAvailabilityOptions) {
   const isPrefetchMonth = prefetchMonth?.year === year && prefetchMonth?.month === month;
+  const hasInitialData = isPrefetchMonth && !!initialMonthAvailability;
 
   return useQuery({
     queryKey: monthAvailabilityQueryKey(year, month),
     queryFn: () => fetchMonthAvailabilityClient(year, month),
-    staleTime: 60_000,
-    gcTime: 5 * 60_000,
-    initialData: isPrefetchMonth && initialMonthAvailability ? initialMonthAvailability : undefined,
+    staleTime: STALE_TIME_MS,
+    gcTime: 10 * 60_000,
+    refetchOnWindowFocus: false,
+    refetchOnMount: !hasInitialData,
+    initialData: hasInitialData ? initialMonthAvailability : undefined,
     placeholderData: (previous) => previous,
   });
 }
@@ -43,8 +48,9 @@ export function useDaySlots(dateKey: string | null) {
     queryKey: daySlotsQueryKey(dateKey ?? ""),
     queryFn: () => fetchDaySlotsClient(dateKey!),
     enabled: !!dateKey,
-    staleTime: 60_000,
-    gcTime: 5 * 60_000,
+    staleTime: STALE_TIME_MS,
+    gcTime: 10 * 60_000,
+    refetchOnWindowFocus: false,
   });
 }
 

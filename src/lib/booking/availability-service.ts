@@ -1,32 +1,10 @@
 import "server-only";
 import { formatDateKey } from "@/lib/booking/calendar-utils";
-import {
-  busyCacheKey,
-  findCachedBusyForDate,
-  getCachedBusy,
-  setCachedBusy,
-} from "@/lib/booking/busy-cache";
+import { getOrFetchBusyForRange } from "@/lib/booking/busy-fetch";
+import { findCachedBusyForDate } from "@/lib/booking/busy-cache";
 import { getScheduleConfig } from "@/lib/booking/config";
-import {
-  buildMonthAvailability,
-  fetchBusyPeriodsForRange,
-  generateSlotsForDay,
-} from "@/lib/booking/google-calendar";
+import { buildMonthAvailability, generateSlotsForDay } from "@/lib/booking/google-calendar";
 import type { DaySlots, MonthAvailabilityMap } from "@/types/scheduling";
-
-async function getOrFetchBusyForRange(
-  config: Awaited<ReturnType<typeof getScheduleConfig>>,
-  start: string,
-  end: string,
-) {
-  const key = busyCacheKey(start, end);
-  const cached = getCachedBusy(key);
-  if (cached) return cached;
-
-  const busy = await fetchBusyPeriodsForRange(config, start, end);
-  setCachedBusy(key, busy, start, end);
-  return busy;
-}
 
 function monthRangeForDate(dateKey: string) {
   const [year, month] = dateKey.split("-").map(Number);

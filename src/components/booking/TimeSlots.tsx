@@ -43,7 +43,10 @@ export function TimeSlots({
           No available times for this date.
         </p>
       ) : (
-        <ul className="flex max-h-[240px] flex-col gap-2 overflow-y-auto pr-1 sm:max-h-[320px]" role="list">
+        <ul
+          className="flex max-h-[240px] flex-col gap-2 overflow-y-auto pr-1 sm:max-h-[320px]"
+          role="list"
+        >
           {slots.map((time) => {
             const isSelected = selectedTime === time;
 

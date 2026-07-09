@@ -1,6 +1,13 @@
 import "server-only";
 import { DateTime } from "luxon";
 import type { BusyPeriod } from "@/lib/booking/busy-cache";
+import {
+  busyCacheKey,
+  findCachedBusyForDate,
+  getCachedBusy,
+  setCachedBusy,
+} from "@/lib/booking/busy-cache";
+import { formatDateKey } from "@/lib/booking/calendar-utils";
 import { isDayAvailable } from "@/lib/booking/host-days";
 import { getCalendarForHost } from "@/lib/booking/google-client";
 import { formatDisplayTime, parseTimeString } from "@/lib/booking/time-utils";
@@ -211,6 +218,30 @@ export function buildMonthAvailability(
   return availability;
 }
 
+function monthRangeForDate(dateKey: string) {
+  const [year, month] = dateKey.split("-").map(Number);
+  const start = formatDateKey(new Date(year, month - 1, 1));
+  const end = formatDateKey(new Date(year, month, 0));
+  return { start, end };
+}
+
+async function getCachedBusyForDate(
+  config: ScheduleConfig,
+  dateKey: string,
+): Promise<BusyPeriod[]> {
+  const cached = findCachedBusyForDate(dateKey);
+  if (cached) return cached;
+
+  const { start, end } = monthRangeForDate(dateKey);
+  const key = busyCacheKey(start, end);
+  const fromKey = getCachedBusy(key);
+  if (fromKey) return fromKey;
+
+  const busy = await fetchBusyPeriodsForRange(config, start, end);
+  setCachedBusy(key, busy, start, end);
+  return busy;
+}
+
 export async function isSlotAvailable(
   config: ScheduleConfig,
   dateKey: string,
@@ -238,14 +269,7 @@ export async function isSlotAvailable(
     config.meetingDurationMinutes,
   );
 
-  const rangeStart = DateTime.fromMillis(start).minus({ minutes: 1 }).toUTC().toISO()!;
-  const rangeEnd = DateTime.fromMillis(end).plus({ minutes: 1 }).toUTC().toISO()!;
-
-  const busy = await fetchBusyPeriodsForRange(
-    config,
-    rangeStart.slice(0, 10),
-    rangeEnd.slice(0, 10),
-  );
+  const busy = await getCachedBusyForDate(config, dateKey);
   return !overlapsBusy(start, end, busy);
 }
 
@@ -304,16 +328,6 @@ export async function createBooking(
     response.data.hangoutLink ??
     response.data.conferenceData?.entryPoints?.find((e) => e.entryPointType === "video")?.uri ??
     undefined;
-
-  if (meetLink) {
-    await calendar.events.patch({
-      calendarId: config.calendarId,
-      eventId,
-      requestBody: {
-        description: `${notesSection}Join Google Meet: ${meetLink}`,
-      },
-    });
-  }
 
   return { eventId, meetLink };
 }
