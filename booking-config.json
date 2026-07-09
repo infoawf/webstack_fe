@@ -1,0 +1,8 @@
+{
+  "name": "Webstack Team",
+  "timezone": "Asia/Karachi",
+  "meetingDuration": 30,
+  "workingHoursStart": "09:00",
+  "workingHoursEnd": "17:00",
+  "availableDays": [1, 2, 3, 4, 5]
+}

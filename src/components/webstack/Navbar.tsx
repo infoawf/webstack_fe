@@ -63,10 +63,10 @@ export function Navbar() {
             <div className="flex items-center gap-2">
               <ThemeToggle />
               <Link
-                href="/contact"
+                href="/book"
                 className="hidden sm:inline-flex items-center rounded-full bg-ink-deep px-4 py-2 text-[13px] font-medium text-white hover:opacity-90 transition-opacity"
               >
-                Contact Us
+                Book Now
               </Link>
               <button
                 onClick={() => setOpen(true)}
@@ -148,11 +148,11 @@ export function Navbar() {
           </nav>
           <div className="p-4 border-t border-ink/10">
             <Link
-              href="/contact"
+              href="/book"
               onClick={() => setOpen(false)}
               className="flex items-center justify-center rounded-full bg-ink-deep px-5 py-3 text-sm font-semibold text-white hover:opacity-90 transition-opacity"
             >
-              Contact Us
+              Book Now
             </Link>
           </div>
         </aside>

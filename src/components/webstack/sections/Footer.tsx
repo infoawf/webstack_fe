@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { FOOTER_DESCRIPTION, FOOTER_LINKS } from "../content/landing";
 import { SectionContainer } from "../ui/SectionContainer";
 
@@ -34,8 +35,16 @@ export function Footer() {
             </ul>
           </div>
         </div>
-        <div className="pt-8 text-xs text-ink-muted">
+        <div className="pt-8 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 text-xs text-ink-muted">
           <p>© 2026 WebStack. All rights reserved.</p>
+          <div className="flex gap-4">
+            <Link href="/privacy" className="hover:text-sky-accent transition-colors">
+              Privacy Policy
+            </Link>
+            <Link href="/terms" className="hover:text-sky-accent transition-colors">
+              Terms of Service
+            </Link>
+          </div>
         </div>
       </SectionContainer>
     </footer>
