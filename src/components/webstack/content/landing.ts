@@ -75,17 +75,11 @@ export const PROBLEMS_SECTION = {
 
 export const SOLUTION_SECTION = {
   title: "Get Found. Built for the New Era of Search (Google + AI)",
-  description:
-    "WebStack builds modern websites designed not just for Google, but for AI-powered search engines and tools.",
-  channelsLabel: "This means your business can appear in:",
-  valueProp: {
-    icon: Zap,
-    title: "$500 Website in under 72 Hours",
-    subtitle: "Fast delivery without agency timelines",
-  },
+  descriptionLead: "WebStack builds modern websites designed not just for Google, but for",
+  descriptionBold: "AI-powered search engines and tools.",
+  channelsLead: "This means your business can appear in",
   hub: {
-    title: "Your business",
-    subtitle: "Structured site",
+    title: "Your Website",
   },
   discoveryNodes: [
     { icon: Search, label: "Google search" },

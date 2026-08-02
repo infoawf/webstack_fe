@@ -5,6 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
 import { ThemeToggle } from "./ThemeToggle";
+import { WebStackLogo } from "./WebStackLogo";
 
 const LINKS = [
   { id: "problems", label: "Problem", href: "/#problems", isAnchor: true },
@@ -37,9 +38,7 @@ export function Navbar() {
               className="inline-flex items-center shrink-0 min-w-0"
               onClick={() => setOpen(false)}
             >
-              <span className="font-display font-bold text-base sm:text-lg tracking-tight text-ink truncate">
-                Web<span className="text-sky-accent">Stack</span>
-              </span>
+              <WebStackLogo size={100} priority className="h-9 w-20 sm:h-10 sm:w-23" />
             </Link>
 
             <div className="hidden lg:flex items-center gap-7 text-[13px] font-medium text-ink-muted">
@@ -110,9 +109,7 @@ export function Navbar() {
               className="inline-flex items-center min-w-0"
               onClick={() => setOpen(false)}
             >
-              <span className="font-display font-bold text-lg tracking-tight text-ink truncate">
-                Web<span className="text-sky-accent">Stack</span>
-              </span>
+              <WebStackLogo size={100} className="h-9 w-22" />
             </Link>
             <button
               type="button"
