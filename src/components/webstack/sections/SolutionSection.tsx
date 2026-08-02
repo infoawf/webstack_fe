@@ -14,7 +14,6 @@ export function SolutionSection() {
       <SectionContainer>
         <Reveal>
           <SectionHead
-            eyebrow={SOLUTION_SECTION.eyebrow}
             title={SOLUTION_SECTION.title}
             description={SOLUTION_SECTION.description}
             center

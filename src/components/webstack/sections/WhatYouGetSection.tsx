@@ -14,7 +14,7 @@ export function WhatYouGetSection() {
     <section id="what-you-get" className="ws-section md:ws-section-md overflow-hidden">
       <SectionContainer>
         <Reveal>
-          <SectionHead eyebrow={WHAT_YOU_GET_SECTION.eyebrow} title={WHAT_YOU_GET_SECTION.title} />
+          <SectionHead title={WHAT_YOU_GET_SECTION.title} />
         </Reveal>
 
         <Reveal delay={0.06}>

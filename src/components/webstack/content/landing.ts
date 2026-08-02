@@ -6,7 +6,7 @@ import {
   Calendar,
   Smartphone,
   DollarSign,
-  MonitorX,
+  Timer,
   Paintbrush,
   SearchX,
   Bot,
@@ -28,19 +28,15 @@ import {
   ShoppingCart,
   Users,
   AppWindow,
-  Check,
-  Timer,
   Target,
 } from "lucide-react";
 
 export const HERO = {
-  eyebrow: "For service businesses",
   headline: "Get a Professional Business Website That Gets You Customers",
   headlineAccent: "For $500",
   subheadline:
     "Fast, modern websites for service businesses, with booking, payments, WhatsApp, and AI-ready structure built in.",
   cta: "Get Your Free Website Mockup",
-  ctaSecondary: "See pricing",
 };
 
 export const HERO_TRUST: { icon: LucideIcon; label: string }[] = [
@@ -48,11 +44,9 @@ export const HERO_TRUST: { icon: LucideIcon; label: string }[] = [
   { icon: Eye, label: "FREE mockup before you buy" },
   { icon: Search, label: "Built for Google + AI search visibility" },
   { icon: Calendar, label: "Booking + payment integration included" },
-  { icon: Smartphone, label: "Mobile optimized & fast loading" },
 ];
 
 export const MOCKUP_SECTION = {
-  eyebrow: "Free mockup first",
   title: "We Design Your Website First. So You Know Exactly What You're Getting",
   description:
     "Before you make any payment, we create a custom mock-up of your website based on your business.",
@@ -63,34 +57,23 @@ export const MOCKUP_SECTION = {
     { icon: Palette, label: "Branding direction" },
     { icon: MousePointer, label: "User experience" },
   ],
-  approvalNote: "Only when you approve it do we start development.",
   trustHeadline: "No guesswork. No risk.",
 };
 
 export const PROBLEMS_SECTION = {
-  eyebrow: "The problem",
-  title: "Most small business websites don't bring customers",
-  closing: "We fix that with a conversion-focused website built for leads.",
+  body: "Most small businesses don't have websites due to high cost and lengthy timelines. Even if they have a website, it is not designed to drive business. We fix that with a",
+  bodyAccent: "conversion-focused website built for leads.",
   items: [
-    {
-      code: "01",
-      title: "Website built in 8–12 weeks costing upwards of $5000",
-      icon: DollarSign,
-    },
-    { code: "02", title: "Old outdated websites", icon: MonitorX },
-    { code: "03", title: "DIY pages that look unprofessional", icon: Paintbrush },
-    { code: "04", title: "No visibility on Google", icon: SearchX },
-    {
-      code: "05",
-      title: "Most existing websites are not built for AI based searches",
-      icon: Bot,
-    },
-    { code: "06", title: "No booking or contact system", icon: CalendarX },
+    { title: "High Costs", icon: DollarSign },
+    { title: "Complex and lengthy time lines", icon: Timer },
+    { title: "DIY pages that look unprofessional", icon: Paintbrush },
+    { title: "No visibility on Google", icon: SearchX },
+    { title: "Not built for AI based searches", icon: Bot },
+    { title: "No booking or contact system", icon: CalendarX },
   ],
 };
 
 export const SOLUTION_SECTION = {
-  eyebrow: "The solution",
   title: "Get Found. Built for the New Era of Search (Google + AI)",
   description:
     "WebStack builds modern websites designed not just for Google, but for AI-powered search engines and tools.",
@@ -119,7 +102,6 @@ export const SOLUTION_SECTION = {
 };
 
 export const WHAT_YOU_GET_SECTION = {
-  eyebrow: "What you get",
   title: "Everything You Need to Start Getting Customers Online",
   featured: {
     icon: Eye,
@@ -170,7 +152,6 @@ export const WHAT_IS_BULLETS = [
 ];
 
 export const WHAT_NOT_SECTION = {
-  eyebrow: "What this is not",
   lead: "Fast, conversion-focused business website service",
   exclusions: [
     { icon: ShoppingCart, title: "E-commerce stores" },
@@ -181,7 +162,6 @@ export const WHAT_NOT_SECTION = {
 };
 
 export const PRICING_SECTION = {
-  eyebrow: "Pricing",
   title: "Simple One-Time Pricing",
   price: "$500",
   sub: "One-Time Payment",
@@ -199,7 +179,6 @@ export const PRICING_SECTION = {
 };
 
 export const HOW_IT_WORKS_SECTION = {
-  eyebrow: "How it works",
   title: "From Idea to Live Website in 3 Steps",
   steps: [
     {
@@ -221,10 +200,9 @@ export const HOW_IT_WORKS_SECTION = {
 };
 
 export const CTA_SECTION = {
-  eyebrow: "Launch",
   title: "Get Your Free Website Mock-up Today",
   button: "Start My Free Mock-up",
-  subtext: "Limited weekly slots available to maintain quality.",
+  subtext: "Book Your Consultation Right Now.",
 };
 
 export const FOOTER_LINKS: { label: string; href: string; scrollTo?: string }[] = [
@@ -232,7 +210,7 @@ export const FOOTER_LINKS: { label: string; href: string; scrollTo?: string }[] 
   { label: "Free mockup", href: "/#mockup", scrollTo: "mockup" },
   { label: "Problem", href: "/#problems", scrollTo: "problems" },
   { label: "Solution", href: "/#solution", scrollTo: "solution" },
-  { label: "What you get", href: "/#what-you-get", scrollTo: "what-you-get" },
+  { label: "Product Details", href: "/product-details" },
   { label: "Pricing", href: "/pricing" },
   { label: "How it works", href: "/#process", scrollTo: "process" },
   { label: "Contact", href: "/contact" },

@@ -36,7 +36,7 @@ export function CTASection() {
             <div className="absolute -bottom-24 left-1/2 -translate-x-1/2 size-[28rem] rounded-full bg-sky-accent/10 blur-3xl" />
 
             <div className="relative mx-auto max-w-2xl min-w-0 px-1">
-              <SectionHead eyebrow={CTA_SECTION.eyebrow} title={CTA_SECTION.title} dark center />
+              <SectionHead title={CTA_SECTION.title} dark center />
               <Link
                 href="/contact"
                 className="mt-8 sm:mt-10 inline-flex w-full sm:w-auto max-w-full items-center justify-center gap-2 rounded-full bg-sky-accent px-6 sm:px-8 py-3.5 sm:py-4 text-sm sm:text-base font-semibold text-white hover:bg-sky-600 transition-colors shadow-[0_18px_50px_-12px_color-mix(in_oklab,var(--sky-accent)_70%,transparent)]"

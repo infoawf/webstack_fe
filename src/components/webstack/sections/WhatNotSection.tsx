@@ -12,11 +12,7 @@ export function WhatNotSection() {
     <section id="not" className="ws-section md:ws-section-md bg-surface-muted overflow-hidden">
       <SectionContainer size="6xl">
         <Reveal>
-          <SectionHead
-            eyebrow={WHAT_NOT_SECTION.eyebrow}
-            title="Know Exactly What You're Getting"
-            center
-          />
+          <SectionHead title="Know Exactly What You're Getting" center />
         </Reveal>
         <Reveal delay={0.08}>
           <div className="grid md:grid-cols-2 gap-4 md:gap-0 md:rounded-3xl md:overflow-hidden md:border md:border-ink/10 md:shadow-card min-w-0">

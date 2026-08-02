@@ -14,7 +14,6 @@ export function PricingPage() {
         <SectionContainer size="4xl">
           <Reveal>
             <SectionHead
-              eyebrow={PRICING_SECTION.eyebrow}
               title={PRICING_SECTION.title}
               description="Everything included in one simple payment. No subscriptions, no surprises."
               center

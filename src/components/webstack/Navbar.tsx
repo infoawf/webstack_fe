@@ -9,6 +9,7 @@ import { ThemeToggle } from "./ThemeToggle";
 const LINKS = [
   { id: "problems", label: "Problem", href: "/#problems", isAnchor: true },
   { id: "solution", label: "Solution", href: "/#solution", isAnchor: true },
+  { id: "product-details", label: "Product Details", href: "/product-details", isAnchor: false },
   { id: "pricing", label: "Pricing", href: "/pricing", isAnchor: false },
   { id: "contact", label: "Contact Us", href: "/contact", isAnchor: false },
 ] as const;

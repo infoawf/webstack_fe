@@ -13,11 +13,7 @@ export function HowItWorksSection() {
     <section id="process" className="ws-section md:ws-section-md overflow-hidden">
       <SectionContainer>
         <Reveal>
-          <SectionHead
-            eyebrow={HOW_IT_WORKS_SECTION.eyebrow}
-            title={HOW_IT_WORKS_SECTION.title}
-            center
-          />
+          <SectionHead title={HOW_IT_WORKS_SECTION.title} center />
         </Reveal>
 
         <div className="flex flex-col md:flex-row md:items-stretch gap-5 md:gap-0 min-w-0">
