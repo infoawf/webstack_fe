@@ -64,23 +64,19 @@ function useRefArray(count: number) {
 function BrandNode({
   node,
   innerRef,
-  showLabel = true,
 }: {
   node: GraphNode;
   innerRef?: RefObject<HTMLDivElement | null>;
-  showLabel?: boolean;
 }) {
   const Icon = node.icon;
   return (
-    <div ref={innerRef} className="flex flex-col items-center gap-2 z-10">
-      <div className="size-14 sm:size-16 rounded-full dark:bg-white bg-surface border border-ink/10 shadow-card grid place-items-center">
-        <Icon className={cn("size-6 sm:size-7", node.iconClass)} aria-hidden />
+    <div ref={innerRef} className="flex flex-col items-center gap-1.5 sm:gap-2 z-10">
+      <div className="size-11 sm:size-14 md:size-16 rounded-full dark:bg-white bg-surface border border-ink/10 shadow-card grid place-items-center">
+        <Icon className={cn("size-5 sm:size-6 md:size-7", node.iconClass)} aria-hidden />
       </div>
-      {showLabel && (
-        <span className="text-[11px] font-semibold text-ink-muted text-center max-w-[88px] leading-tight">
-          {node.label}
-        </span>
-      )}
+      <span className="text-[10px] sm:text-[11px] font-semibold text-ink-muted text-center max-w-[72px] sm:max-w-[88px] leading-tight">
+        {node.label}
+      </span>
     </div>
   );
 }
@@ -92,80 +88,63 @@ export function SolutionIntegrationGraph() {
   const rightRefs = useRefArray(RIGHT_NODES.length);
 
   return (
-    <>
-      <div
-        ref={containerRef}
-        className="relative bg-gray-400/10 hidden lg:flex items-center justify-around py-10 px-4 xl:px-6 rounded-3xl border border-ink/10 min-h-[340px]"
-      >
-        <div className="flex flex-col justify-evenly gap-14">
-          {LEFT_NODES.map((node, i) => (
-            <BrandNode key={node.id} node={node} innerRef={leftRefs[i]} />
-          ))}
-        </div>
-
-        <div ref={hubRef} className="flex flex-col items-center gap-2 z-10 mx-4 xl:mx-6">
-          <div className="size-28 xl:size-32 dark:bg-white rounded-full bg-surface border-2 border-sky-accent/40 shadow-card grid place-items-center px-3 text-center">
-            <span className="font-display text-base xl:text-lg font-bold text-ink leading-tight tracking-tight">
-              Your
-              <br />
-              Website
-            </span>
-          </div>
-        </div>
-
-        <div className="flex flex-col justify-evenly gap-14">
-          {RIGHT_NODES.map((node, i) => (
-            <BrandNode key={node.id} node={node} innerRef={rightRefs[i]} />
-          ))}
-        </div>
-
-        {LEFT_NODES.map((node, i) => {
-          const fromRef = leftRefs[i];
-          if (!fromRef) return null;
-          return (
-            <AnimatedBeam
-              key={`left-${node.id}`}
-              containerRef={containerRef}
-              fromRef={fromRef}
-              toRef={hubRef}
-              curvature={node.curvature}
-              delay={node.delay}
-              duration={6}
-            />
-          );
-        })}
-        {RIGHT_NODES.map((node, i) => {
-          const fromRef = rightRefs[i];
-          if (!fromRef) return null;
-          return (
-            <AnimatedBeam
-              key={`right-${node.id}`}
-              containerRef={containerRef}
-              fromRef={fromRef}
-              toRef={hubRef}
-              curvature={node.curvature}
-              delay={node.delay}
-              duration={5}
-              reverse
-            />
-          );
-        })}
+    <div
+      ref={containerRef}
+      className="relative w-full h-full min-h-[280px] sm:min-h-[320px] flex items-center justify-around py-8 sm:py-10 px-2 sm:px-4 xl:px-8 rounded-2xl sm:rounded-3xl border border-ink/10 bg-gray-400/10"
+    >
+      <div className="flex h-full flex-col justify-evenly gap-8 sm:gap-12 md:gap-14 py-2">
+        {LEFT_NODES.map((node, i) => (
+          <BrandNode key={node.id} node={node} innerRef={leftRefs[i]} />
+        ))}
       </div>
 
-      <div className="lg:hidden min-w-0 space-y-5">
-        <div className="mx-auto flex size-28 items-center justify-center rounded-full border-2 border-sky-accent/40 bg-surface shadow-card">
-          <span className="font-display text-base font-bold text-ink leading-tight tracking-tight text-center">
+      <div ref={hubRef} className="flex flex-col items-center gap-2 z-10 mx-1 sm:mx-4 xl:mx-6">
+        <div className="size-20 sm:size-28 xl:size-32 dark:bg-white rounded-full bg-surface border-2 border-sky-accent/40 shadow-card grid place-items-center px-2 sm:px-3 text-center">
+          <span className="font-display text-sm sm:text-base xl:text-lg font-bold text-ink leading-tight tracking-tight">
             Your
             <br />
             Website
           </span>
         </div>
-        <div className="grid grid-cols-2 gap-3 sm:gap-4 min-w-0">
-          {[...LEFT_NODES, ...RIGHT_NODES].map((node) => (
-            <BrandNode key={node.id} node={node} showLabel />
-          ))}
-        </div>
       </div>
-    </>
+
+      <div className="flex h-full flex-col justify-evenly gap-8 sm:gap-12 md:gap-14 py-2">
+        {RIGHT_NODES.map((node, i) => (
+          <BrandNode key={node.id} node={node} innerRef={rightRefs[i]} />
+        ))}
+      </div>
+
+      {LEFT_NODES.map((node, i) => {
+        const fromRef = leftRefs[i];
+        if (!fromRef) return null;
+        return (
+          <AnimatedBeam
+            key={`left-${node.id}`}
+            containerRef={containerRef}
+            fromRef={fromRef}
+            toRef={hubRef}
+            curvature={node.curvature}
+            delay={node.delay}
+            duration={6}
+          />
+        );
+      })}
+      {RIGHT_NODES.map((node, i) => {
+        const fromRef = rightRefs[i];
+        if (!fromRef) return null;
+        return (
+          <AnimatedBeam
+            key={`right-${node.id}`}
+            containerRef={containerRef}
+            fromRef={fromRef}
+            toRef={hubRef}
+            curvature={node.curvature}
+            delay={node.delay}
+            duration={5}
+            reverse
+          />
+        );
+      })}
+    </div>
   );
 }
