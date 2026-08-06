@@ -1,10 +1,6 @@
 "use client";
 
-import {
-  WhatYouGetSection,
-  WhatNotSection,
-  Footer,
-} from "@/components/webstack/sections";
+import { WhatYouGetSection, WhatNotSection, Footer } from "@/components/webstack/sections";
 
 export function ProductDetailsPage() {
   return (

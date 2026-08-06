@@ -24,9 +24,7 @@ export function ProblemsSection() {
               <div className="lg:col-span-5 min-w-0">
                 <p className="text-base sm:text-lg md:text-xl text-white/80 leading-relaxed text-pretty">
                   {PROBLEMS_SECTION.body}{" "}
-                  <span className="font-semibold text-white">
-                    {PROBLEMS_SECTION.bodyAccent}
-                  </span>
+                  <span className="font-semibold text-white">{PROBLEMS_SECTION.bodyAccent}</span>
                 </p>
               </div>
 
